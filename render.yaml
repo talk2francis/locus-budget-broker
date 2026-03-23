@@ -1,0 +1,16 @@
+services:
+  - type: worker
+    name: locus-budget-broker-bot
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: npm install
+    startCommand: npm run dev
+    autoDeploy: true
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: LOCUS_API_KEY
+        sync: false
+      - key: AUDIT_LOG_PATH
+        value: data/locus-audit-log.jsonl

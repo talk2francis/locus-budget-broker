@@ -19,6 +19,18 @@ npm run dev
 Then, in Telegram, send `/check someone@example.com` and tap **Approve**.
 
 ## Demo Website
+## 24/7 Bot Hosting
+**Render worker (one-click):** connect this repo, keep `render.yaml`, and Render will spin a Node worker with `npm run dev`. Set `TELEGRAM_BOT_TOKEN` + `LOCUS_API_KEY` in the Render dashboard.
+
+**Self-hosted PM2:**
+``
+cp .env.example .env  # fill secrets
+npm install
+npx pm2 start npm --name locus-broker -- run dev
+pm2 save && pm2 startup
+``
+This keeps the bot alive through reboots on any VPS.
+
 A lightweight static landing page lives under `website/`. Deploy it to Vercel/Netlify or test locally with `npx serve website`. It summarizes the agent, key features, and links to the Telegram bot before visitors hop into chat.
 
 ## Repo Layout
