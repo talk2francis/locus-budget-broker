@@ -34,8 +34,7 @@ a {
   text-align: center;
   padding: 4rem 1.5rem 3rem;
   background-image:
-    linear-gradient(135deg, rgba(5, 9, 20, 0.6), rgba(5, 9, 20, 0.92)),
-    url('/website/img/hero.jpg');
+    linear-gradient(135deg, rgba(5, 9, 20, 0.9), rgba(5, 9, 20, 0.98));
   background-size: cover;
   background-position: center;
   border-bottom: 1px solid rgba(0, 245, 255, 0.12);
