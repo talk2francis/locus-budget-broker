@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Locus Budget Broker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <p>Built for Locus · Powered by Telegraf + OpenClaw</p>
+      <h1>Budget-aware Telegram agent for Locus wrapped APIs</h1>
+      <p>
+        Every API call is pre-priced, human-approved, and paid through the Locus wallet.
+        The bot explains the spend, enforces allowances, and leaves an auditable trail.
+      </p>
+      <a class="cta-button" href="https://t.me/LocusBudgetBrokerBot" target="_blank" rel="noopener">
+        Launch the Telegram bot →
+      </a>
+    </div>
+  </header>
+
+  <section class="section">
+    <h2>Why teams use Locus Budget Broker</h2>
+    <div class="content-grid">
+      <article class="card">
+        <h3>Real approvals</h3>
+        <p>The bot quotes the wrapped Email Reputation cost (~$0.006), enforces allowance + reserve buffers, and requires an inline Approve tap before spend.</p>
+      </article>
+      <article class="card">
+        <h3>Wallet-native proofs</h3>
+        <p>Every call is charged to wallet <code>0xdf17…cdaf</code>. Balance deltas and Locus tx IDs are mirrored into <code>data/locus-audit-log.jsonl</code>.</p>
+      </article>
+      <article class="card">
+        <h3>Drop-in architecture</h3>
+        <p>Single `npm install`, `.env`, and `npm run dev`. Built with Telegraf + TypeScript + the Locus wrapped API client.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" style="background: rgba(11,20,41,0.35);">
+    <h2>How the flow works</h2>
+    <div class="workflow">
+      <div class="workflow-step">
+        <strong>Plan →</strong> User runs <code>/check email@example.com</code>. Bot estimates the wrapped API cost and displays allowance, wallet balance, and approval buttons.
+      </div>
+      <div class="workflow-step">
+        <strong>Guard →</strong> Bot pulls <code>/api/pay/balance</code>, enforces allowance + reserve buffers, and aborts if spend would break policy.
+      </div>
+      <div class="workflow-step">
+        <strong>Execute →</strong> On approval, bot hits <code>/api/wrapped/abstract-email-reputation/check</code>, computes before/after balances, and echoes the risk report.
+      </div>
+      <div class="workflow-step">
+        <strong>Audit →</strong> JSONL entry captures intent ID, wallet, email checked, cost, balance delta, and summarized risk fields.
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Proof bundle</h2>
+    <div class="proof-grid">
+      <div class="proof-card">
+        <h3>Wallet & funding</h3>
+        <p>Wallet: <code>0xdf17b4c0394ef7f231e1db629018a1189ff9cdaf</code><br/>Gift code redeem tx: <code>0x8fbf…95dfb</code></p>
+      </div>
+      <div class="proof-card">
+        <h3>Spend log</h3>
+        <p><code>data/locus-audit-log.jsonl</code> captures the latest email check (balance 10 → 9.994 USDC).</p>
+      </div>
+      <div class="proof-card">
+        <h3>Docs</h3>
+        <p>Architecture, safety policy, and submission pack live in <code>docs/</code> — ready for judges.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="text-align:center;">
+    <h2>Get started in under 60 seconds</h2>
+    <p>Clone the repo, copy <code>.env.example</code>, plug your Locus + Telegram secrets, and run <code>npm run dev</code>. The README walks through every step.</p>
+    <div style="margin-top:1.5rem; display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
+      <a class="cta-button" href="https://github.com/talk2francis/locus-budget-broker" target="_blank" rel="noopener">View GitHub</a>
+      <a class="cta-button" href="https://raw.githubusercontent.com/talk2francis/locus-budget-broker/main/docs/locus-proof.md" target="_blank" rel="noopener">Read the proof →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    Built with ❤️ on Locus. Questions? Ping us in Telegram after you explore the site.
+  </footer>
+</body>
+</html>

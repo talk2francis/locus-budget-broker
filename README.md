@@ -18,6 +18,9 @@ npm run dev
 ```
 Then, in Telegram, send `/check someone@example.com` and tap **Approve**.
 
+## Demo Website
+A lightweight static landing page lives under `website/`. Deploy it to Vercel/Netlify or test locally with `npx serve website`. It summarizes the agent, key features, and links to the Telegram bot before visitors hop into chat.
+
 ## Repo Layout
 - `src/index.ts` — Telegraf bot + Locus client
 - `docs/` — architecture plan, proof bundle, submission copy, skill references
